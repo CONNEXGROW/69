@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aspire 400K - Fueling the Next Generation</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+
+        :root {
+            --primary-color: #00D67B;
+            --secondary-color: #ffffff;
+            --text-color: #ffffff;
+            --background-color: #1a1a1a;
+            --accent-color: #FF6B6B;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--background-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        .banner {
+            width: 100%;
+            height: 0;
+            padding-top: 31.25%; /* 16:5 aspect ratio */
+            background-image: url('1 (2).png');
+            background-size: cover;
+            background-position: center top;
+            background-repeat: no-repeat;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .banner::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(to bottom, rgba(26, 26, 26, 0), rgba(26, 26, 26, 1));
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .content {
+            padding-top: 2rem;
+        }
+
+        .title {
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            text-align: center;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .subtitle {
+            font-size: 1.4rem;
+            color: var(--secondary-color);
+            text-align: center;
+            margin-bottom: 2rem;
+            animation: fadeInUp 1s ease-out 0.3s backwards;
+        }
+
+        .prize-amount {
+            font-size: 2.5rem;
+            color: var(--accent-color);
+            text-align: center;
+            margin-bottom: 2rem;
+            font-weight: bold;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            animation: fadeInUp 1s ease-out 0.6s backwards;
+        }
+
+        /* Countdown Styles */
+        .countdown {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            animation: fadeInUp 1s ease-out 0.9s backwards;
+        }
+
+        .countdown-item {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 1rem;
+            border-radius: 10px;
+            min-width: 100px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .countdown-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .countdown-number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+
+        .countdown-label {
+            font-size: 0.9rem;
+            color: var(--secondary-color);
+        }
+
+        /* Benefits and Timeline Styles */
+        .grid-container {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 2rem;
+            margin: 3rem 0;
+            animation: fadeInUp 1s ease-out 1.2s backwards;
+        }
+
+        .benefits-section, .timeline-section {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 2rem;
+            border-radius: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .benefits-section:hover, .timeline-section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .section-title {
+            color: var(--primary-color);
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--primary-color);
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+        }
+
+        .benefit-item {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 1rem;
+            border-radius: 10px;
+            text-align: center;
+            transition: transform 0.3s ease, background-color 0.3s ease;
+        }
+
+        .benefit-item:hover {
+            transform: scale(1.05);
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        .timeline-item {
+            margin-bottom: 1rem;
+            padding-left: 1rem;
+            border-left: 2px solid var(--primary-color);
+            transition: transform 0.3s ease;
+        }
+
+        .timeline-item:hover {
+            transform: translateX(5px);
+        }
+
+        .timeline-date {
+            color: var(--accent-color);
+            font-weight: bold;
+        }
+
+        /* Partners Section */
+        .partners-section {
+            text-align: center;
+            margin: 3rem 0;
+            animation: fadeInUp 1s ease-out 1.5s backwards;
+        }
+
+        .partners-grid {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .partner-logo {
+            width: 120px;
+            height: 120px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--secondary-color);
+            font-weight: bold;
+            transition: transform 0.3s ease, background-color 0.3s ease;
+        }
+
+        .partner-logo:hover {
+            transform: scale(1.1);
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 1rem 2rem;
+            background-color: var(--primary-color);
+            color: var(--background-color);
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            text-align: center;
+            width: 200px;
+            margin: 2rem auto;
+            display: block;
+            animation: pulse 2s infinite;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 8px rgba(0, 214, 123, 0.3);
+        }
+
+        /* Footer Styles */
+        footer {
+            margin-top: 4rem;
+            padding: 2rem 0;
+            text-align: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            animation: fadeInUp 1s ease-out 1.8s backwards;
+        }
+
+        .footer-logo {
+            color: var(--primary-color);
+            font-weight: bold;
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+
+        .footer-links a {
+            color: var(--secondary-color);
+            text-decoration: none;
+            margin: 0 1rem;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--primary-color);
+        }
+
+        .footer-copyright {
+            margin-top: 1rem;
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 0.9rem;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .banner {
+                padding-top: 56.25%; /* 16:9 aspect ratio for mobile */
+            }
+
+            .title {
+                font-size: 2.5rem;
+            }
+
+            .subtitle {
+                font-size: 1.2rem;
+            }
+
+            .grid-container {
+                grid-template-columns: 1fr;
+            }
+
+            .countdown {
+                flex-wrap: wrap;
+            }
+
+            .countdown-item {
+                min-width: 80px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="banner"></div>
+    <div class="container">
+        <div class="content">
+            <h1 class="title">ASPIRE <span id="titleNumber">0</span>K</h1>
+            <p class="subtitle">Fueling the Next Generation of Entrepreneurs</p>
+            <div class="prize-amount">₹<span id="prizeAmount">0</span> Grand Prize!</div>
+
+            <div class="countdown">
+                <div class="countdown-item">
+                    <div class="countdown-number" id="days">00</div>
+                    <div class="countdown-label">Days</div>
+                </div>
+                <div class="countdown-item">
+                    <div class="countdown-number" id="hours">00</div>
+                    <div class="countdown-label">Hours</div>
+                </div>
+                <div class="countdown-item">
+                    <div class="countdown-number" id="minutes">00</div>
+                    <div class="countdown-label">Minutes</div>
+                </div>
+                <div class="countdown-item">
+                    <div class="countdown-number" id="seconds">00</div>
+                    <div class="countdown-label">Seconds</div>
+                </div>
+            </div>
+
+            <a href="#" class="cta-button" id="registerButton">Register Now</a>
+
+            <div class="grid-container">
+                <div class="benefits-section">
+                    <h2 class="section-title">CONNEXGROW PRESENTS</h2>
+                    <div class="benefits-grid">
+                        <div class="benefit-item">INR 4 Lac Grand Prize</div>
+                        <div class="benefit-item">INR 10 LAC in Perks</div>
+                        <div class="benefit-item">Mentoring & Incubation Support</div>
+                        <div class="benefit-item">Networking Opportunities</div>
+                        <div class="benefit-item">Learning Interaction with Mentors</div>
+                        <div class="benefit-item">Corporate Association Opportunity</div>
+                        <div class="benefit-item">Funding Readiness for selected startups</div>
+                    </div>
+                </div>
+
+                <div class="timeline-section">
+                    <h2 class="section-title">TIMELINE</h2>
+                    <div class="timeline-item">
+                        <div class="timeline-date">1 MAR</div>
+                        <div>APPLICATION START</div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-date">15 MAR</div>
+                        <div>APPLICATION DEADLINE</div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-date">1 APR</div>
+                        <div>SHORTLIST ANNOUNCEMENT</div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-date">15 APR</div>
+                        <div>GRAND FINALE</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="partners-section">
+                <h2 class="section-title">IN ASSOCIATION WITH</h2>
+                <div class="partners-grid">
+                    <div class="partner-logo">Partner 1</div>
+                    <div class="partner-logo">Partner 2</div>
+                    <div class="partner-logo">Partner 3</div>
+                    <div class="partner-logo">Partner 4</div>
+                    <div class="partner-logo">Partner 5</div>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <div class="footer-logo">Powered by ConnexGrow</div>
+            <div class="footer-links">
+                <a href="http://www.connexgrow.com" target="_blank">www.connexgrow.com</a>
+            </div>
+            <div class="footer-copyright">
+                All rights reserved by NULYF GLOBAL © 2025
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Register Button Click Handler
+            const registerButton = document.getElementById('registerButton');
+            registerButton.addEventListener('click', function(e) {
+                e.preventDefault();
+                alert('Registration opening soon! Get ready for the chance to win ₹4,00,000!');
+            });
+
+            // Countdown Timer
+            const countDownDate = new Date("Mar 1, 2025 00:00:00").getTime();
+
+            function updateCountdown() {
+                const now = new Date().getTime();
+                const distance = countDownDate - now;
+
+                const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+                document.getElementById("days").innerHTML = String(days).padStart(2, '0');
+                document.getElementById("hours").innerHTML = String(hours).padStart(2, '0');
+                document.getElementById("minutes").innerHTML = String(minutes).padStart(2, '0');
+                document.getElementById("seconds").innerHTML = String(seconds).padStart(2, '0');
+
+                if (distance < 0) {
+                    clearInterval(countdownInterval);
+                    document.getElementById("countdown").innerHTML = "EXPIRED";
+                }
+            }
+
+            const countdownInterval = setInterval(updateCountdown, 1000);
+            updateCountdown();
+
+            // Number animations
+            function animateValue(obj, start, end, duration) {
+                let startTimestamp = null;
+                const step = (timestamp) => {
+                    if (!startTimestamp) startTimestamp = timestamp;
+                    const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+                    obj.innerHTML = Math.floor(progress * (end - start) + start);
+                    if (progress < 1) {
+                        window.requestAnimationFrame(step);
+                    }
+                };
+                window.requestAnimationFrame(step);
+            }
+
+            const titleNumber = document.getElementById("titleNumber");
+            const prizeAmount = document.getElementById("prizeAmount");
+
+            animateValue(titleNumber, 0, 400, 2000);
+            animateValue(prizeAmount, 0, 400000, 2000);
+
+            // Animate benefits on scroll
+            const benefitItems = document.querySelectorAll('.benefit-item');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = 1;
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            benefitItems.forEach(item => {
+                item.style.opacity = 0;
+                item.style.transform = 'translateY(20px)';
+                item.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+                observer.observe(item);
+            });
+
+            // Animate partner logos
+            const partnerLogos = document.querySelectorAll('.partner-logo');
+            partnerLogos.forEach((logo, index) => {
+                logo.style.animation = `fadeInUp 0.5s ease ${index * 0.1}s backwards`;
+            });
+        });
+    </script>
+</body>
+</html>
